@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Linear Model</title>
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+		<script>
+			async function run() {
+				const MODEL_URL = 'output_files/model.json';
+				const model = await tf.loadLayersModel(MODEL_URL);
+				console.log(model.summary());
+				const input = tf.tensor2d([10.0], [1, 1]);
+				const result = model.predict(input);
+				alert(result);
+			}
+			run();
+		</script>
+	</head>
+	<body></body>
+</html>
